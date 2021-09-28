@@ -6,7 +6,7 @@
 2. 입력은 `30 + 20 / 2 * 4` 순으로 받으며, 연산자 우선순위 없이 앞에서 부터 계산을 진행합니다.=
 3. 출력은 `100`으로 나옵니다.
 
-### 2. commit 및 pr 방법
+### 2. commit 및 pr 방법ddd
 1. branch에 `본인이름/main` 과 `본인이름/working`으로 2개의 브랜치 만들기 
 > `donggeon/main`, `donggeon/working`으로 브랜치 두개 생성
 2. 해당 프로젝트를 clone 한 뒤에 git checkout 본인이름/working으로 바꾸기
