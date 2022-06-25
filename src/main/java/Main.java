@@ -1,10 +1,19 @@
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
+
+        //조금 더러운 것 같음
+
         InputStrSplit input = new InputStrSplit();
+        OpsNumSplit opsNumSplit = new OpsNumSplit();
 
-        input.strSplit();
-        input.opsNumSplit();
+        String[] str = input.strSplit();
+        opsNumSplit.opsNumSplit(str);
 
-        System.out.println("결과값: " + Calculator.calculate(input.numArr, input.opsArr));
+        List<String> opsList = opsNumSplit.getOpsList();
+        List<Integer> numList = opsNumSplit.getNumList();
+
+        System.out.println(Output.output(numList, opsList));
     }
 }

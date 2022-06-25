@@ -1,11 +1,11 @@
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
-public class InputStr {
+public class Input {
 
     public static String input() {
         System.out.print("입력값: ");
-        Scanner sc = new Scanner(System.in);
-        return sc.nextLine();
+        return new Scanner(System.in).nextLine();
     }
 
 }

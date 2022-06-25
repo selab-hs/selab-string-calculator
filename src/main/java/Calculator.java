@@ -1,17 +1,20 @@
+import java.util.List;
+
 public class Calculator {
 
-    public static int calculate(int[] nums, String[] ops) {
-        int sum = nums[0];
+    //여기서 어떻게 더 나눠야 할지 모르겠음
 
-        for(int i = 0; i < ops.length; i++) {
+    public static int calculate(List<Integer> nums, List<String> ops) {
+        int sum = nums.get(0);
 
-            switch (ops[i]) {
-                case "+" -> sum += nums[i + 1];
-                case "-" -> sum -= nums[i + 1];
-                case "*" -> sum *= nums[i + 1];
-                case "/" -> sum /= nums[i + 1];
+        for(int i = 0; i < ops.size(); i++) {
+
+            switch (ops.get(i)) {
+                case "+" -> sum += nums.get(i+1);
+                case "-" -> sum -= nums.get(i+1);
+                case "*" -> sum *= nums.get(i+1);
+                case "/" -> sum /= nums.get(i+1);
             }
-
         }
 
         return sum;
