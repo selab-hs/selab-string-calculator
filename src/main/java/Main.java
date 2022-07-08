@@ -4,18 +4,17 @@ public class Main {
     public static void main(String[] args) {
 
         Input input = new Input();
-        Split split = new Split();
 
         String[] str = input.inputDataSplit();
-        split.split(str);
+        input.split(str);
 
-        List<String> operators = split.getOperators();
-        List<Integer> numbers = split.getNumbers();
+        List<String> operators = input.getOperators().getOperators();
+        List<Integer> numbers = input.getNumbers().getNumbers();
 
-        int sum = Calculator.calculate(numbers, operators);
+        int result = Calculator.calculate(numbers, operators);
 
         Output output = new Output();
-        output.output(sum);
+        output.output(result);
 
     }
 }

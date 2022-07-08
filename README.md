@@ -50,7 +50,7 @@ wrjs@naver.com
    
      문자가 부호(-+*/)가 맞는지 확인하는 메서드 (유효성 검사)
 
-3. **Operation Class**
+3. **Operator Class**
 
     입력한 연산자(부호)에 맞춰 값을 계산하는 클래스
 
