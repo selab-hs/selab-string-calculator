@@ -1,37 +1,36 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Input {
 
-    Number numbers = new Number();
-    Operator operators = new Operator();
+    private List<String> numbers = new ArrayList<>();
+    private List<String> operators = new ArrayList<>();
 
-    public static String input() {
+    public String input() {
         System.out.print("입력값: ");
         return new Scanner(System.in).nextLine();
     }
 
-    public String[] inputDataSplit() {
-        return input().split(" ");
+    public String[] inputDataSplit(String str) {
+        return str.split(" ");
     }
 
     public void split(String[] str_arr) {
-
         for(int i = 0; i < str_arr.length; i++) {
-            if (i % 2 == 0) {
-               numbers.validateNumber(str_arr[i]);
-            }
-            else {
-                operators.validateOperator(str_arr[i]);
-            }
+            if (i % 2 == 0)
+                numbers.add(str_arr[i]);
+            if (i % 2 != 0)
+                operators.add(str_arr[i]);
         }
     }
 
-    public Number getNumbers() {
-        return numbers;
+    public List<Integer> getNumbers() {
+        return new Number(numbers).getNumbers();
     }
 
-    public Operator getOperators() {
-        return operators;
+    public List<String> getOperators() {
+        return new Operator(operators).getOperators();
     }
 
 }

@@ -5,11 +5,11 @@ public class Main {
 
         Input input = new Input();
 
-        String[] str = input.inputDataSplit();
+        String[] str = input.inputDataSplit(input.input());
         input.split(str);
 
-        List<String> operators = input.getOperators().getOperators();
-        List<Integer> numbers = input.getNumbers().getNumbers();
+        List<String> operators = input.getOperators();
+        List<Integer> numbers = input.getNumbers();
 
         int result = Calculator.calculate(numbers, operators);
 

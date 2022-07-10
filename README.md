@@ -34,21 +34,37 @@ wrjs@naver.com
 
    - **inputDataSplit()**
    
-     입력 받은 값을 공백을 기준으로 분리하여 배열에 저장하는 메서드
+     입력 받은 문자열을 공백을 기준으로 분리하여 반환하는 메서드
 
-2. **Split Class**
+   - **split()**
+   
+     공백을 기준으로 분리한 문자열이 짝수인지 홀수인지 하나씩 확인한다.
+   
+     만약 짝수라면 숫자이므로 numbers 리스트에 넣고,
+   
+     홀수라면 부호이므로 operators 리스트에 넣는다.
 
-    입력 받은 값을 숫자와 부호로 나누는 클래스
+   - **getNumbers()**
+     
+     Number 클래스의 getNumbers() 한 값(유효성 검사 한 값)을 가져온다.
+   
+   - **getOperators()**
+     
+     Operator 클래스의 getOperators() 한 값(유효성 검사 한 값)을 가져온다.
 
-   - **split(String[] str_arr)**
+    
+2. **Number Class**
 
-     공백을 기준으로 분리해 저장한 값을 숫자인지 부호인지 확인한 뒤, 나눠서 리스트에 넣는 메서드
+    숫자를 numbers 리스트에 저장하는 클래스
+
    - **validateNumber(String str)**
 
      문자가 숫자(0-9)가 맞는지 확인하는 메서드 (유효성 검사)
-   - **validateOperator(String str)**
    
-     문자가 부호(-+*/)가 맞는지 확인하는 메서드 (유효성 검사)
+     숫자가 아니면 RuntimeException을 발생시키고
+   
+     숫자가 맞다면 문자열을 정수값으로 바꿔 numbers에 저장한다.
+
 
 3. **Operator Class**
 
@@ -58,18 +74,29 @@ wrjs@naver.com
    
         부호에 맞춰 값을 계산하고, 만약 지정된 부호(-+*/)가 아니라면 "잘못되었습니다."를 출력하는 메서드
 
-5. **Calculator Class**
+    - **validateOperator(String str)**
+
+      문자가 부호(-+*/)가 맞는지 확인하는 메서드 (유효성 검사)
+
+      부호가 아니면 RuntimeException을 발생시키고
+
+      부호가 맞다면 해당 문자열을 operators에 저장한다.
+
+
+4. **Calculator Class**
     
     숫자 리스트에 저장된 값과 부호 리스트에 저장된 값을 불러와 차례대로 계산하는 클래스
 
-6. **Output Class**
+
+5. **Output Class**
 
     값을 출력하는 클래스
     
-    - **output(int sum)**
+    - **output(int result)**
     
-      합계(sum)을 출력하는 메서드
+      계산한 결과값(result)을 출력하는 메서드
 
-7. **Main Class**
+
+6. **Main Class**
     
     실행하는 클래스
