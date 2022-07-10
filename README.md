@@ -72,7 +72,7 @@ wrjs@naver.com
 
     - **int Operate(int sum, int num, String operator)**
    
-        부호에 맞춰 값을 계산하고, 만약 지정된 부호(-+*/)가 아니라면 "잘못되었습니다."를 출력하는 메서드
+        부호에 맞춰 값을 계산하고, 만약 지정된 부호(-, +, *, /)가 아니라면 "잘못되었습니다."를 출력하는 메서드
 
     - **validateOperator(String str)**
 

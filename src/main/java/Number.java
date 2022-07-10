@@ -11,7 +11,7 @@ public class Number {
         }
     }
 
-    public void validateNumber(String str) {
+    private void validateNumber(String str) {
         if(!(str.matches("^[0-9]*$")))
             throw new RuntimeException("숫자가 아닙니다.");
         numbers.add(Integer.parseInt(str));

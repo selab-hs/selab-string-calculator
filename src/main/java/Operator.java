@@ -21,7 +21,7 @@ public class Operator {
             }
     }
 
-    public void validateOperator(String str) {
+    private void validateOperator(String str) {
         if(!(str.matches("[-+*/]"))) {
             throw new RuntimeException("부호가 아닙니다.");
         }
