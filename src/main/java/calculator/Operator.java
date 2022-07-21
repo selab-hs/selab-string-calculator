@@ -1,16 +1,15 @@
 package calculator;
 
 import calculation.Plus;
-import calculatorIO.validity;
+import calculator.operatorValidation;
 import error.OperatorError;
 
-public class Operator implements validity {
-
+public class Operator{
 
     private final String operator;
 
     public Operator(Calculator calculator, String operator){
-        doValidation(calculator, operator);
+        new operatorValidation().doValidation(operator);
         this.operator = operator;
         addOperator(calculator,this);
     }
@@ -23,15 +22,4 @@ public class Operator implements validity {
         return this.operator;
     }
 
-    @Override
-    public void doValidation(Calculator calculator, String data) {
-        try{
-            if(!(data.equals(calculator.PLUS.getSIGN()))  && !(data.equals(calculator.MINUS.getSIGN())) && !(data.equals(calculator.TIMES.getSIGN())) && !(data.equals(calculator.DIVISION.getSIGN()))){
-                throw new Exception();
-            }
-        }catch(Exception e){
-            new OperatorError().printErrorMessage();
-            System.exit(0);
-        }
-    }
 }
