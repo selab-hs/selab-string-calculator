@@ -1,5 +1,9 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("1 + 1 = 2");
+        String input = InputStream.inputStream();
+
+        double result = Calculator.calculate(input);
+
+        OutputStream.outputStream(result);
     }
 }
