@@ -2,13 +2,14 @@ package calculator;
 
 import calculatorIO.validity;
 import error.NumberError;
+import calculator.numberValidation;
 
-public class Number implements validity {
+public class Number {
 
     private final int number;
 
     public Number(Calculator calculator, String number){
-        doValidation(calculator, number);
+        new numberValidation().doValidation(number);
         this.number = Integer.parseInt(number);
         addNumber(calculator,this);
     }
@@ -19,15 +20,5 @@ public class Number implements validity {
 
     public int getNumber(){
         return this.number;
-    }
-
-    @Override
-    public void doValidation(Calculator calculator, String data) {
-        try{
-            Integer.parseInt(data);
-        } catch(NumberFormatException e){
-            new NumberError().printErrorMessage();
-            System.exit(0);
-        }
     }
 }
