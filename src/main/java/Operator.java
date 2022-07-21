@@ -1,22 +1,26 @@
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
+import java.util.Arrays;
+
 @Getter
 @RequiredArgsConstructor
 public enum Operator {
     PLUS("+", (a,b)-> a + b),
     MINUS("-", (a,b)-> a - b),
     MULTIPLE("*", (a,b)-> a * b),
-    DIVIDE("/", (a,b)-> a / b), //0으로 나누기 예외처리
+    DIVIDE("/", (a,b)-> a / b),
     ;
 
     private final String sign;
-    private final Calulable calulable;
+    private final Operate operate;
 
-    public static boolean of(String sign) {
-        for(Operator o : Operator.values()) {
-            if(o.getSign().equals(sign)) return true;
+    public static void checkOperator(String sign) {
+        boolean result = Arrays.stream(Operator.values())
+                .anyMatch(o -> o.getSign().equals(sign));
+
+        if(!result) {
+            throw new RuntimeException("유효하지 않은 연산자입니다!");
         }
-        return false;
     }
 }

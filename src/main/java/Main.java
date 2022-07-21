@@ -1,12 +1,9 @@
-import java.util.Scanner;
-
 public class Main {
-    public static void main(String[] args) throws Exception {
-        Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
+    public static void main(String[] args) {
+        String input = InputStream.inputStream();
 
-        CalculateStack calculateStack = new CalculateStack();
-        System.out.println(calculateStack.getStack(input));
+        double result = Calculator.calculate(input);
 
+        OutputStream.outputStream(result);
     }
 }
