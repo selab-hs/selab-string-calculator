@@ -3,7 +3,7 @@ package calculator;
 import calculatorIO.validity;
 import error.NumberError;
 
-public class numberValidation implements validity {
+public class NumberValidation implements validity {
 
     @Override
     public void doValidation(String data) {
