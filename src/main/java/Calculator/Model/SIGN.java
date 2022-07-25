@@ -12,12 +12,12 @@ public enum SIGN {
     private String operator;
     private BiFunction<Integer, Integer, Integer> expression;
 
-    SIGN(String operator, BiFunction<Integer, Integer, Integer> expression) {
-        this.operator = operator;
+    SIGN(String sign, BiFunction<Integer, Integer, Integer> expression) {
+        this.operator = sign;
         this.expression = expression;
     }
 
-    public int mapCalculate(int num1, int num2) {
+    public int calculate(int num1, int num2) {
         return expression.apply(num1, num2);
     }
 }
