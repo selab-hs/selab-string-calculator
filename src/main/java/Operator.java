@@ -1,6 +1,5 @@
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-
 import java.util.Arrays;
 
 @Getter
@@ -15,12 +14,15 @@ public enum Operator {
     private final String sign;
     private final Operate operate;
 
-    public static void checkOperator(String sign) {
-        boolean result = Arrays.stream(Operator.values())
+    public static boolean checkOperator(String sign) {
+        return Arrays.stream(Operator.values())
                 .anyMatch(o -> o.getSign().equals(sign));
+    }
 
-        if(!result) {
-            throw new RuntimeException("유효하지 않은 연산자입니다!");
-        }
+    public static Operator getOperator(String sign) {
+        return Arrays.stream(Operator.values())
+                .filter(operator -> operator.getSign().equals(sign))
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("지원하지 않는 연산자입니다."));
     }
 }

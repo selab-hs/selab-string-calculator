@@ -1,9 +1,11 @@
 public class Main {
     public static void main(String[] args) {
-        String input = InputStream.inputStream();
+        InputUtil inputUtil = new InputUtil();
+        OutputUtil outputUtil = new OutputUtil();
+        Calculator calculator = new Calculator();
 
-        double result = Calculator.calculate(input);
-
-        OutputStream.outputStream(result);
+        String input = inputUtil.inputStream();
+        double result = calculator.calculate(input);
+        outputUtil.outputStream(result);
     }
 }

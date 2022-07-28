@@ -19,7 +19,7 @@
    - 일급 컬렉션을 사용한다.
    - getter/setter/프로퍼티 를 쓰지 않는다.
 2. 계산기 객체 분리
-   - 입력 및 출력 -> InputStream, OutputStream 클래스
+   - 입력 및 출력 -> InputUtil, OutputUtil 클래스
    - 숫자와 연산자 분리하는 메서드 -> Calculator.splitInput()
    - 계산을 진행하는 메서드 -> Calculator.calculate()
    - 계산 시 예외처리 메서드 -> Calculator.checkCalculateException()

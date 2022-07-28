@@ -2,42 +2,39 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Calculator {
-    static Queue<Double> numbers;
-    static Queue<String> operators;
+    public Double calculate(String input) {
+        Queue<Double> numbers;
+        Queue<String> operators;
 
-    public static Double calculate(String input) {
         numbers = new LinkedList<>();
         operators = new LinkedList<>();
-        splitInput(input);
+        splitInput(input, numbers, operators);
 
         Double result = numbers.poll();
         while(!numbers.isEmpty()) {
             Double nextNumber = numbers.poll();
             String sign = operators.poll();
-            checkCalculateException(nextNumber, sign);
+            checkCalculate(nextNumber, sign);
             result = getCalculate(result, nextNumber, sign);
         }
         return result;
     }
 
-    public static void checkCalculateException(Double number, String sign) {
-        Operator.checkOperator(sign);
+    public void checkCalculate(Double number, String sign) {
+        if(!Operator.checkOperator(sign)) {
+            throw new RuntimeException("유효하지 않은 연산자입니다!");
+        }
         if(sign.equals("/") && number==0) {
             throw new ArithmeticException("0으로 나눌 수 없습니다!");
         }
     }
 
-    public static Double getCalculate(Double num1, Double num2, String sign) {
-        for(Operator operator : Operator.values()) {
-            if (operator.getSign().equals(sign)) {
-                num1 = operator.getOperate().getOperate(num1, num2);
-                break;
-            }
-        }
-        return num1;
+    public Double getCalculate(Double num1, Double num2, String sign) {
+        Operator operator = Operator.getOperator(sign);
+        return operator.getOperate().getOperate(num1, num2);
     }
 
-    public static void splitInput(String input) {
+    public static void splitInput(String input, Queue<Double> numbers, Queue<String> operators) {
         String[] arr = input.split(" ");
         numbers.offer(Double.parseDouble(arr[0]));
 
