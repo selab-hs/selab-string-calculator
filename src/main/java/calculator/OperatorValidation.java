@@ -2,7 +2,7 @@ package calculator;
 
 import calculation.Calculate;
 
-public enum Operator_1 implements Calculate {
+public enum OperatorValidation implements Calculate {
     PLUS("+"){
         @Override
         public int doCalculate(int number1, int number2){
@@ -25,9 +25,9 @@ public enum Operator_1 implements Calculate {
         }
     };
 
-    private String sign;
+    private final String sign;
 
-    Operator_1(String sign) {
+    OperatorValidation(String sign) {
         this.sign = sign;
     }
 
