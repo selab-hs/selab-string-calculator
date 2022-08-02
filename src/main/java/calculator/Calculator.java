@@ -1,6 +1,8 @@
 package calculator;
 
 import calculation.*;
+import calculatorException.nullCheck;
+import calculatorException.valueCheck;
 import calculatorIO.Input;
 import calculatorIO.Output;
 
@@ -14,13 +16,10 @@ public class Calculator {
     public Queue<Number> number = new LinkedList<>();
     public Queue<Operator> operator = new LinkedList<>();
 
-    public final Plus PLUS = new Plus();
-    public final Minus MINUS = new Minus();
-    public final Times TIMES = new Times();
-    public final Division DIVISION = new Division();
-
     public Calculator(){
         new Input(this);
+        new nullCheck(this);
+        new valueCheck(this);
         new Calculation(this);
         new Output(this);
     }
