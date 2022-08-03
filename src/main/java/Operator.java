@@ -1,9 +1,5 @@
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import java.util.Arrays;
 
-@Getter
-@RequiredArgsConstructor
 public enum Operator {
     PLUS("+", (a,b)-> a + b),
     MINUS("-", (a,b)-> a - b),
@@ -11,12 +7,20 @@ public enum Operator {
     DIVIDE("/", (a,b)-> a / b),
     ;
 
-    private final String sign;
-    private final Operate operate;
+    private String sign;
+    private Operate operate;
 
-    public static boolean checkOperator(String sign) {
-        return Arrays.stream(Operator.values())
-                .anyMatch(o -> o.getSign().equals(sign));
+    Operator(String sign, Operate operate) {
+        this.sign = sign;
+        this.operate = operate;
+    }
+
+    public String getSign() {
+        return sign;
+    }
+
+    public Operate getOperate() {
+        return operate;
     }
 
     public static Operator getOperator(String sign) {

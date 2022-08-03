@@ -21,9 +21,6 @@ public class Calculator {
     }
 
     public void checkCalculate(Double number, String sign) {
-        if(!Operator.checkOperator(sign)) {
-            throw new RuntimeException("유효하지 않은 연산자입니다!");
-        }
         if(sign.equals("/") && number==0) {
             throw new ArithmeticException("0으로 나눌 수 없습니다!");
         }
