@@ -3,18 +3,18 @@ import java.util.Queue;
 
 public class Calculator {
     public Double calculate(String input) {
-        Queue<Double> numbers;
-        Queue<String> operators;
+        Queue<Number> numbers;
+        Queue<Operator> operators;
 
         numbers = new LinkedList<>();
         operators = new LinkedList<>();
         splitInput(input, numbers, operators);
 
-        Double result = numbers.poll();
+        Double result = numbers.poll().getNumber();
         while(!numbers.isEmpty()) {
-            Double nextNumber = numbers.poll();
-            String sign = operators.poll();
-            checkCalculate(nextNumber, sign);
+            Double nextNumber = numbers.poll().getNumber();
+            Operator sign = operators.poll();
+            checkCalculate(nextNumber, sign.getSign());
             result = getCalculate(result, nextNumber, sign);
         }
         return result;
@@ -26,18 +26,17 @@ public class Calculator {
         }
     }
 
-    public Double getCalculate(Double num1, Double num2, String sign) {
-        Operator operator = Operator.getOperator(sign);
-        return operator.getOperate().getOperate(num1, num2);
+    public Double getCalculate(Double num1, Double num2, Operator sign) {
+        return sign.getOperate().getOperate(num1, num2);
     }
 
-    public static void splitInput(String input, Queue<Double> numbers, Queue<String> operators) {
+    public static void splitInput(String input, Queue<Number> numbers, Queue<Operator> operators) {
         String[] arr = input.split(" ");
-        numbers.offer(Double.parseDouble(arr[0]));
+        numbers.offer(new Number(arr[0]));
 
         for(int i=1;i<arr.length-1;i=i+2) {
-            operators.offer(arr[i]);
-            numbers.offer(Double.parseDouble(arr[i+1]));
+            operators.offer(Operator.getOperator(arr[i]));
+            numbers.offer(new Number(arr[i+1]));
         }
     }
 }
