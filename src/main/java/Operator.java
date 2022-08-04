@@ -29,4 +29,10 @@ public enum Operator {
                 .findFirst()
                 .orElseThrow(() -> new RuntimeException("지원하지 않는 연산자입니다."));
     }
+
+    public static void checkDivision(Double number, String sign) {
+        if(sign.equals("/") && number==0) {
+            throw new ArithmeticException("0으로 나눌 수 없습니다!");
+        }
+    }
 }

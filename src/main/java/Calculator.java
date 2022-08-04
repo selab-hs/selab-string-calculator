@@ -14,16 +14,10 @@ public class Calculator {
         while(!numbers.isEmpty()) {
             Double nextNumber = numbers.poll().getNumber();
             Operator sign = operators.poll();
-            checkCalculate(nextNumber, sign.getSign());
+            Operator.checkDivision(nextNumber, sign.getSign());
             result = getCalculate(result, nextNumber, sign);
         }
         return result;
-    }
-
-    public void checkCalculate(Double number, String sign) {
-        if(sign.equals("/") && number==0) {
-            throw new ArithmeticException("0으로 나눌 수 없습니다!");
-        }
     }
 
     public Double getCalculate(Double num1, Double num2, Operator sign) {
