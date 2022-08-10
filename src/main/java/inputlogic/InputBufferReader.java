@@ -1,0 +1,32 @@
+package inputlogic;
+
+import storage.Formula;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class InputBufferReader implements  InputLogic{
+    List<String> formula = new ArrayList<>();
+    @Override
+    public void inputFormula() {
+        try{
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+            String str = bufferedReader.readLine();
+            this.formula = Arrays.asList(str.split(" "));
+            bufferedReader.close();
+        }catch (IOException e){
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+            inputFormula();
+        }
+    }
+
+    public List<String> getFactoredFormula() {
+        return formula;
+    }
+}
