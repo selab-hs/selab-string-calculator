@@ -5,7 +5,7 @@ import calculator.*;
 import java.util.Iterator;
 
 public class Calculation {
-    
+
     public Calculation(Calculator calculator){
         calculator.setResult(calculator.number.poll().getNumber());
 
