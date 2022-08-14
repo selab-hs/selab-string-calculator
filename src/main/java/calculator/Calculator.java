@@ -1,35 +1,26 @@
 package calculator;
 
-import calculation.*;
-import calculatorException.nullCheck;
-import calculatorException.valueCheck;
-import calculatorIO.Input;
-import calculatorIO.Output;
+import calculation.Calculation;
+import view.Input;
+import view.Output;
 
+import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class Calculator {
     public int result;
-    public String formula;
-
+    public List<String> formula;
     public Queue<Number> number = new LinkedList<>();
-    public Queue<Operator> operator = new LinkedList<>();
+    public Queue<String> operator = new LinkedList<>();
 
     public Calculator(){
-        new Input(this);
-        new nullCheck(this);
-        new valueCheck(this);
+        formula = Arrays.asList(new Input().Input());
+        addNumber();
+        addOperator();
         new Calculation(this);
-        new Output(this);
-    }
-
-    public void setFormula(String formula){
-        this.formula = formula;
-    }
-
-    public String getFormula(){
-        return formula;
+        new Output(result);
     }
 
     public void setResult(int result){
@@ -37,6 +28,18 @@ public class Calculator {
     }
 
     public int getResult(){
-        return result;
+        return this.result;
+    }
+
+    private void addNumber(){
+        formula.stream()
+                .filter(data -> Number.isNumber(data))
+                .forEach(data -> number.add(new Number(data)));
+    }
+
+    private void addOperator(){
+        formula.stream()
+                .filter(data -> Operator.isOperator(data))
+                .forEach(data -> operator.add(data));
     }
 }
