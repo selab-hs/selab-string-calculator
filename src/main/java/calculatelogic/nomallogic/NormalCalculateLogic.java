@@ -9,6 +9,8 @@ import java.util.Optional;
 public class NormalCalculateLogic implements CalculateLogic {
     OperatorMap operatorMap = new OperatorMap();
 
+    int answer;
+
     public double calculateSinglePart(int a, String sign, int b) {
         return Optional.ofNullable(operatorMap.getOperatorMap().get(sign))
                 .orElseThrow(() -> new IllegalArgumentException("error"))
@@ -16,11 +18,13 @@ public class NormalCalculateLogic implements CalculateLogic {
     }
 
 
-    public void calculateAll(List<String> formula) {
-        int answer = Integer.parseInt(formula.get(0));
+    public int calculateAll(List<String> formula) {
+        this.answer = Integer.parseInt(formula.get(0));
         for (int i = 1; i < formula.size(); i += 2) {
             answer = ((int) calculateSinglePart(answer, formula.get(i), Integer.parseInt(formula.get(i + 1))));
         }
-        System.out.println(answer);
+        return answer;
     }
+
+
 }
