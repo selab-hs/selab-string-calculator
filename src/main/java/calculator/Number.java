@@ -2,22 +2,26 @@ package calculator;
 
 public class Number {
     private int number;
-    public Number(String data){
+
+    public Number(String data) {
+        numberValidation(data);
         setNumber(Integer.parseInt(data));
     }
-    private void setNumber(int number){
-        this.number = number;
+
+    public void numberValidation(String data) {
+        try {
+            Integer.parseInt(data);
+        } catch (Exception e) {
+            System.out.println("잘못된 숫자를 입력하셨습니다.");
+            System.exit(0);
+        }
     }
-    public int getNumber(){
+
+    public int getNumber() {
         return this.number;
     }
 
-    public static boolean isNumber(String data){
-        try{
-            Integer.parseInt(data);
-            return true;
-        } catch(Exception e){
-            return false;
-        }
+    private void setNumber(int number) {
+        this.number = number;
     }
 }

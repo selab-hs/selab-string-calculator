@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.stream.IntStream;
 
 public class Calculator {
     public int result;
@@ -15,31 +16,35 @@ public class Calculator {
     public Queue<Number> number = new LinkedList<>();
     public Queue<String> operator = new LinkedList<>();
 
-    public Calculator(){
+    public Calculator() {
         formula = Arrays.asList(new Input().Input());
         addNumber();
         addOperator();
         new Calculation(this);
-        new Output(result);
+        new Output().printOutput(getResult());
     }
 
-    public void setResult(int result){
+    public void setResult(int result) {
         this.result = result;
     }
 
-    public int getResult(){
+    public int getResult() {
         return this.result;
     }
 
-    private void addNumber(){
-        formula.stream()
-                .filter(data -> Number.isNumber(data))
-                .forEach(data -> number.add(new Number(data)));
+    private void addNumber() {
+        IntStream.range(0, formula.size())
+                .filter(this::isOdd)
+                .forEach(index -> number.add(new Number(formula.get(index))));
     }
 
-    private void addOperator(){
+    private boolean isOdd(int number) {
+        return number % 2 == 0;
+    }
+
+    private void addOperator() {
         formula.stream()
-                .filter(data -> Operator.isOperator(data))
+                .filter(Operator::isOperator)
                 .forEach(data -> operator.add(data));
     }
 }
