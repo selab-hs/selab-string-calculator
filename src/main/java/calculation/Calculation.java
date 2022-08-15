@@ -6,16 +6,16 @@ import java.util.Iterator;
 
 public class Calculation {
 
-    public Calculation(Calculator calculator){
+    public Calculation(Calculator calculator) {
         calculator.setResult(calculator.number.poll().getNumber());
 
         Iterator max = calculator.operator.iterator();
 
-        while(max.hasNext()){
+        while (max.hasNext()) {
             calculator.setResult(
                     Operator
-                    .getOperator(calculator.operator.poll())
-                    .doCalculate(calculator.getResult(), calculator.number.poll().getNumber())
+                            .getOperator(calculator.operator.poll())
+                            .Calculate(calculator.getResult(), calculator.number.poll().getNumber())
             );
         }
 
