@@ -3,7 +3,7 @@ package storage;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Formula implements FormulaRule{
+public class PreserveNecessaryData {
     private List<String> formula = new ArrayList<>();
 
     public List<String> getFormula() {

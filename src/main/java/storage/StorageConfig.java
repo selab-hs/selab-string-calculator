@@ -2,7 +2,7 @@ package storage;
 
 public class StorageConfig {
 
-    public FormulaRule formulaRule(){
-        return new Formula();
+    public PreserveNecessaryData formulaRule(){
+        return new PreserveNecessaryData();
     }
 }
