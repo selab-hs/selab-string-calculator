@@ -4,19 +4,35 @@ import showconsole.*;
 
 public class ConsoleConfig {
 
-    public ShowConsole numberLogic(){
+    public ShowConsole numberLogic() {
+        return number();
+    }
+
+    public ShowConsole placeLogic() {
+        return place();
+    }
+
+    public ShowConsole lengthLogic() {
+        return length();
+    }
+
+    public ShowConsole signLogic() {
+        return sign();
+    }
+
+    private ShowConsole number() {
         return new NumberError();
     }
 
-    public ShowConsole placeLogic(){
+    private ShowConsole place() {
         return new PlaceError();
     }
 
-    public ShowConsole lengthLogic(){
+    private ShowConsole length() {
         return new LengthError();
     }
 
-    public ShowConsole signLogic(){
+    private ShowConsole sign() {
         return new SignError();
     }
 
