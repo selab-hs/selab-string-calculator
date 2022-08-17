@@ -41,7 +41,7 @@ public class ValidateNumber implements ValidateLogic {
 
     private void notStartZero(List<String> formula){
         for(String number : formula){
-            if(number.charAt(0) == '0' && number != "0"){
+            if(number.charAt(0) == '0' && !number.equals("0")){
                 consoleConfig.numberLogic().showConsole();
                 System.exit(0);
             }
