@@ -1,14 +1,14 @@
 public class CalcutaterStart {
     public static void main(String[] args) {
 
-        SplitString splitString = new SplitString();
-        StringToInteger stringToInteger = new StringToInteger(splitString.queue);
-        Calculation calculation = new Calculation(stringToInteger.queueInt, stringToInteger.queueString);
+        NumberExtractor numberExtractor = new NumberExtractor();
+        StringToInteger stringToInteger = new StringToInteger(numberExtractor.numberSubmit);
+        Calculation calculation = new Calculation(stringToInteger.fillternumber, stringToInteger.fillterSpace);
 
-        splitString.getString();
-        splitString.StringToInteger();
-        stringToInteger.SplitStringInt();
-        calculation.CalculateLine();
+        numberExtractor.getString();
+        numberExtractor.stringToInteger();
+        stringToInteger.splitStringInt();
+        calculation.calculateLine();
 
     }
 

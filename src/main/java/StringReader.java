@@ -2,10 +2,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class GetString {
-    String data ="";
+public class StringReader {
+    String data = "";
 
-    public void getString(){
+    public void getString() {
         BufferedReader str = new BufferedReader(new InputStreamReader(System.in));
         System.out.print("put String : ");
         try {

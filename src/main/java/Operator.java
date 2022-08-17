@@ -1,27 +1,16 @@
-public enum Operator{
-        Add("+"){
-            public int calculate(int firstNUM,int secondNUM){
-                return firstNUM + secondNUM;
-            }
-        },
-        Minus("-"){
-            public int calculate(int firstNUM,int secondNUM){
-                return firstNUM - secondNUM;
-            }
-        },
-        Multiple("*"){
-            public int calculate(int firstNUM,int secondNUM){
-                return firstNUM * secondNUM;
-            }
-        },
-        Divide("/"){
-            public int calculate(int firstNUM,int secondNUM){
-                return firstNUM / secondNUM;
-            }
-        };
+import java.util.function.BiFunction;
 
-        String value;
-        Operator(String value){this.value = value;}
-        public abstract int calculate(int firstNUM, int secondNUM);
+public enum Operator {
+    Add("+", (firstNUM, secondNUM) -> firstNUM + secondNUM),
+    Minus("-", (firstNUM, secondNUM) -> firstNUM - secondNUM),
+    Multiple("*", (firstNUM, secondNUM) -> firstNUM * secondNUM),
+    Divide("/", (firstNUM, secondNUM) -> firstNUM / secondNUM);
+    final String value;
+    BiFunction<Integer, Integer, Integer> calculate;
+
+    Operator(String value, BiFunction<Integer, Integer, Integer> calculate) {
+        this.value = value;
+        this.calculate = calculate;
     }
+}
 

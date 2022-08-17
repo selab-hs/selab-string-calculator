@@ -1,51 +1,39 @@
 import java.util.HashMap;
 
 import java.util.Queue;
-import java.util.function.BiFunction;
 
 public class Calculation {
-    Queue<Integer> queueInt;
-    Queue<String> queueString;
+    private Operator operator;
+    private Queue<Integer> number;
+    private Queue<String> symbol;
 
-    Calculation(Queue queueInt, Queue queueString){
-        this.queueInt = queueInt;
-        this.queueString = queueString;
-    }
-    static HashMap<String, Calculation.Operator> makeOperator = new HashMap<>();
-    static {
-        makeOperator.put("+", Calculation.Operator.Add);
-        makeOperator.put("-", Calculation.Operator.Minus);
-        makeOperator.put("*", Calculation.Operator.Multiple);
-        makeOperator.put("/", Calculation.Operator.Divide);
+    Calculation(Queue number, Queue symbol) {
+        this.number = number;
+        this.symbol = symbol;
     }
 
-    public enum Operator{
-        Add("+",(firstNUM, secondNUM) -> firstNUM + secondNUM),
-        Minus("-", (firstNUM, secondNUM) ->firstNUM - secondNUM),
-        Multiple("*", (firstNUM, secondNUM) ->firstNUM * secondNUM),/*{
-          public int calculate(int firstNUM,int secondNUM){
-                return firstNUM * secondNUM;
-            }
-            */
-        Divide("/", (firstNUM, secondNUM) ->firstNUM / secondNUM);
-        final String value;
-        BiFunction<Integer, Integer, Integer> calculate;
-        Operator(String value, BiFunction<Integer, Integer, Integer> calculate){this.value = value; this.calculate = calculate;}
-        //public abstract int calculate(int firstNUM, int secondNUM);
+     HashMap<String, Operator> makeOperator = new HashMap<>();
+
+     {
+        makeOperator.put("+", Operator.Add);
+        makeOperator.put("-", Operator.Minus);
+        makeOperator.put("*", Operator.Multiple);
+        makeOperator.put("/", Operator.Divide);
     }
-    public int CalculateLine(){
-        int firstNUM = queueInt.poll();
-        while(!queueInt.isEmpty()){
-            int secondNUM = queueInt.poll();
-            String operator = queueString.poll();
+
+
+    public int calculateLine() {
+        int firstNUM = number.poll();
+        while (!number.isEmpty()) {
+            int secondNUM = number.poll();
+            String operator = symbol.poll();
             firstNUM = Calculate(operator, firstNUM, secondNUM);
         }
         System.out.println("result you put : " + firstNUM);
         return firstNUM;
     }
-    public int Calculate(String operator, int firstNUM, int secondNUM){
+
+    public int Calculate(String operator, int firstNUM, int secondNUM) {
         return makeOperator.get(operator).calculate.apply(firstNUM, secondNUM);
     }
-
-
 }
