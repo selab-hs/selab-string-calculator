@@ -3,6 +3,10 @@ package validatelogic.sequence;
 public class ValidateConfig {
 
     public ValidateSequence validateSequence(){
-        return new SequenceOne();
+        return sequence();
+    }
+
+    private ValidateSequence sequence(){
+        return new ValidateSequenceOne();
     }
 }
