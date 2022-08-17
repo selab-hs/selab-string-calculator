@@ -4,14 +4,14 @@ import validatelogic.*;
 
 import java.util.List;
 
-public class SequenceOne implements ValidateSequence{
+public class ValidateSequenceOne implements ValidateSequence{
 
     ValidateLogic length;
     ValidateLogic place;
     ValidateLogic number;
     ValidateLogic sign;
 
-    SequenceOne(){
+    ValidateSequenceOne(){
         this.length = new ValidateLength();
         this.number = new ValidateNumber();
         this.place = new ValidatePlace();
