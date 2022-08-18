@@ -8,7 +8,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ValidateLengthTest {
+class LengthValidationTest {
 
     List<String> formula = Arrays.asList(
             "10",

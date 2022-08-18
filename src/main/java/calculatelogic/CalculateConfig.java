@@ -1,7 +1,5 @@
 package calculatelogic;
 
-import calculatelogic.nomallogic.NormalCalculateLogic;
-
 public class CalculateConfig {
 
     public CalculateLogic calculateLogic(){
@@ -9,6 +7,6 @@ public class CalculateConfig {
     }
 
     private CalculateLogic logic(){
-        return new NormalCalculateLogic();
+        return new CalculationsUsingOperator();
     }
 }

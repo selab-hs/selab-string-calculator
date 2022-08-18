@@ -2,6 +2,7 @@ package validatelogic;
 
 import java.util.List;
 
-public interface ValidateLogic {
+public interface ValidationCheckLogic {
     public void checkValidate(List<String> formula);
+
 }

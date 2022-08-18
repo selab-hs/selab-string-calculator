@@ -4,36 +4,28 @@ import showconsole.*;
 
 public class ConsoleConfig {
 
-    public ShowConsole numberLogic() {
+    public ResultNotification numberLogic() {
         return number();
     }
 
-    public ShowConsole placeLogic() {
-        return place();
-    }
-
-    public ShowConsole lengthLogic() {
+    public ResultNotification lengthLogic() {
         return length();
     }
 
-    public ShowConsole signLogic() {
+    public ResultNotification signLogic() {
         return sign();
     }
 
-    private ShowConsole number() {
-        return new NumberError();
+    private ResultNotification number() {
+        return new NumberErrorNotification();
     }
 
-    private ShowConsole place() {
-        return new PlaceError();
+    private ResultNotification length() {
+        return new LengthErrorNotification();
     }
 
-    private ShowConsole length() {
-        return new LengthError();
-    }
-
-    private ShowConsole sign() {
-        return new SignError();
+    private ResultNotification sign() {
+        return new SignErrorNotification();
     }
 
 }

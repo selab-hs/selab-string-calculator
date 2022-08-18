@@ -7,9 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class ValidateNumberTest {
+class NumberValidationTest {
     List<String> formula1 = Arrays.asList(
             "10",
             "+",
@@ -40,7 +38,7 @@ class ValidateNumberTest {
     @Test
     public void notStartZero() {
         wrongNumbers.stream()
-                .forEach(ValidateNumberTest::notStartZero);
+                .forEach(NumberValidationTest::notStartZero);
 
     }
 

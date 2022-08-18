@@ -2,7 +2,7 @@ package validatelogic;
 
 import java.util.List;
 
-public class ValidateLength implements ValidateLogic{
+public class LengthValidation implements ValidationCheckLogic {
 
     ConsoleConfig consoleConfig = new ConsoleConfig();
 
@@ -10,7 +10,7 @@ public class ValidateLength implements ValidateLogic{
     public void checkValidate(List<String> formula) {
         if(formula.size() %2 == 0){
             System.exit(0);
-            consoleConfig.lengthLogic().showConsole();
+            consoleConfig.lengthLogic().expressOnConsole();
         }
     }
 }

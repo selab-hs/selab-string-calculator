@@ -3,7 +3,7 @@ package storage;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PreserveNecessaryData {
+public class RetentionOfNecessaryDate {
     private List<String> formula = new ArrayList<>();
 
     public List<String> getFormula() {
