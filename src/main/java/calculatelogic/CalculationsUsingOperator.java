@@ -10,7 +10,7 @@ import java.util.Optional;
 
 public class CalculationsUsingOperator implements CalculateLogic {
 
-    private static Map<String, SignAnalysisAnsCalculation> operatorMap = new HashMap<>();
+    private static final Map<String, SignAnalysisAnsCalculation> operatorMap = new HashMap<>();
 
     static {
         operatorMap.put("+", SignAnalysisAnsCalculation.PLUS);
@@ -18,7 +18,6 @@ public class CalculationsUsingOperator implements CalculateLogic {
         operatorMap.put("*", SignAnalysisAnsCalculation.MULTIPLY);
         operatorMap.put("/", SignAnalysisAnsCalculation.DIVIDE);
     }
-    int answer;
 
     public double calculateSinglePart(int a, String sign, int b) {
         return Optional.ofNullable(operatorMap.get(sign))
@@ -28,7 +27,7 @@ public class CalculationsUsingOperator implements CalculateLogic {
 
 
     public int calculateTheWhole(List<String> formula) {
-        this.answer = Integer.parseInt(formula.get(0));
+        int answer = Integer.parseInt(formula.get(0));
         for (int i = 1; i < formula.size(); i += 2) {
             answer = ((int) calculateSinglePart(answer, formula.get(i), Integer.parseInt(formula.get(i + 1))));
         }
