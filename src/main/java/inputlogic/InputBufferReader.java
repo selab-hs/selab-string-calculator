@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class InputBufferReader implements  InputLogic{
+public class InputBufferReader implements InputLogic{
     List<String> formula = new ArrayList<>();
     @Override
     public List<String> inputFormula() {
