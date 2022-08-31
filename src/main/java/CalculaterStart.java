@@ -1,4 +1,4 @@
-public class CalcutaterStart {
+public class CalculaterStart {
     public static void main(String[] args) {
 
         NumberExtractor numberExtractor = new NumberExtractor();
