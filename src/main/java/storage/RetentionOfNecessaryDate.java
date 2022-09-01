@@ -6,11 +6,11 @@ import java.util.List;
 public class RetentionOfNecessaryDate {
     private List<String> formula = new ArrayList<>();
 
+    public RetentionOfNecessaryDate(List<String> formula){
+        this.formula = formula;
+    }
     public List<String> getFormula() {
         return formula;
     }
 
-    public void setFormula(List<String> formula) {
-        this.formula = formula;
-    }
 }

@@ -1,5 +1,7 @@
 package validatelogic;
 
+import showconsole.ConsoleConfig;
+
 import java.util.List;
 
 public class SignValidation implements ValidationCheckLogic {

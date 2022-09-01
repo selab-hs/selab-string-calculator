@@ -1,4 +1,4 @@
-package validatelogic;
+package showconsole;
 
 import showconsole.*;
 
@@ -17,15 +17,15 @@ public class ConsoleConfig {
     }
 
     private ResultNotification number() {
-        return new NumberErrorNotification();
+        return new ErrorNotification("number");
     }
 
     private ResultNotification length() {
-        return new LengthErrorNotification();
+        return new ErrorNotification("length");
     }
 
     private ResultNotification sign() {
-        return new SignErrorNotification();
+        return new ErrorNotification("sign");
     }
 
 }

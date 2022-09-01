@@ -1,4 +1,4 @@
-package validatelogic.sequence;
+package sequencelogic.validatesequence;
 
 public class ValidationConfig {
 

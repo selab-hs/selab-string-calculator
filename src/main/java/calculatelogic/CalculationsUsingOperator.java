@@ -1,7 +1,7 @@
 package calculatelogic;
 
 
-import storage.SignAnalysisAnsCalculation;
+import storage.SignAnalysisAndCalculation;
 
 import java.util.HashMap;
 import java.util.List;
@@ -10,13 +10,13 @@ import java.util.Optional;
 
 public class CalculationsUsingOperator implements CalculateLogic {
 
-    private static final Map<String, SignAnalysisAnsCalculation> operatorMap = new HashMap<>();
+    private static final Map<String, SignAnalysisAndCalculation> operatorMap = new HashMap<>();
 
     static {
-        operatorMap.put("+", SignAnalysisAnsCalculation.PLUS);
-        operatorMap.put("-", SignAnalysisAnsCalculation.MINUS);
-        operatorMap.put("*", SignAnalysisAnsCalculation.MULTIPLY);
-        operatorMap.put("/", SignAnalysisAnsCalculation.DIVIDE);
+        operatorMap.put("+", SignAnalysisAndCalculation.PLUS);
+        operatorMap.put("-", SignAnalysisAndCalculation.MINUS);
+        operatorMap.put("*", SignAnalysisAndCalculation.MULTIPLY);
+        operatorMap.put("/", SignAnalysisAndCalculation.DIVIDE);
     }
 
     public double calculateSinglePart(int a, String sign, int b) {

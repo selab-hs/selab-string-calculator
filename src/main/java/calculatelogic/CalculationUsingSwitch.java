@@ -1,6 +1,6 @@
 package calculatelogic;
 
-import validatelogic.ConsoleConfig;
+import showconsole.ConsoleConfig;
 
 import java.util.List;
 

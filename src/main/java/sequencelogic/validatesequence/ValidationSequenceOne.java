@@ -1,5 +1,6 @@
-package validatelogic.sequence;
+package sequencelogic.validatesequence;
 
+import validatelogic.FormulaExtraction;
 import validatelogic.*;
 
 import java.util.List;

@@ -2,7 +2,7 @@ package storage;
 
 import java.util.function.BiFunction;
 
-public enum SignAnalysisAnsCalculation {
+public enum SignAnalysisAndCalculation {
     PLUS("+", (num1, num2) -> num1 + num2),
     MINUS("-", (num1, num2) -> num1 - num2),
     MULTIPLY("*", (num1, num2) -> num1 * num2),
@@ -12,7 +12,7 @@ public enum SignAnalysisAnsCalculation {
     private String operator;
     private BiFunction<Integer, Integer, Integer> analyzeTwoNumberAndCalculate;
 
-    SignAnalysisAnsCalculation(String sign, BiFunction<Integer, Integer, Integer> analyzeTwoNumberAndCalculate) {
+    SignAnalysisAndCalculation(String sign, BiFunction<Integer, Integer, Integer> analyzeTwoNumberAndCalculate) {
         this.operator = sign;
         this.analyzeTwoNumberAndCalculate = analyzeTwoNumberAndCalculate;
     }
