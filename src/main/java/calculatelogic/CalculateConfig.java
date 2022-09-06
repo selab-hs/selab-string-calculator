@@ -2,11 +2,12 @@ package calculatelogic;
 
 public class CalculateConfig {
 
-    public CalculateLogic calculateLogic(){
-        return logic();
-    }
+    public static CalculateConfig calculateConfig = new CalculateConfig();
 
-    private CalculateLogic logic(){
+
+    public Calculation calculateLogic(){
         return new CalculationsUsingOperator();
     }
+
+
 }

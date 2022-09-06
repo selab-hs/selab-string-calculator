@@ -1,14 +1,34 @@
 package calculatelogic;
 
 
-import storage.SignAnalysisAndCalculation;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.function.BiFunction;
 
-public class CalculationsUsingOperator implements CalculateLogic {
+public class CalculationsUsingOperator implements Calculation {
+    private int answer;
+
+    private enum SignAnalysisAndCalculation {
+        PLUS("+", (num1, num2) -> num1 + num2),
+        MINUS("-", (num1, num2) -> num1 - num2),
+        MULTIPLY("*", (num1, num2) -> num1 * num2),
+        DIVIDE("/", (num1, num2) -> num1 / num2);
+
+
+        private String operator;
+        private BiFunction<Integer, Integer, Integer> analyzeTwoNumberAndCalculate;
+
+        SignAnalysisAndCalculation(String sign, BiFunction<Integer, Integer, Integer> analyzeTwoNumberAndCalculate) {
+            this.operator = sign;
+            this.analyzeTwoNumberAndCalculate = analyzeTwoNumberAndCalculate;
+        }
+
+        private int calculateByOperator(int num1, int num2) {
+            return analyzeTwoNumberAndCalculate.apply(num1, num2);
+        }
+    }
 
     private static final Map<String, SignAnalysisAndCalculation> operatorMap = new HashMap<>();
 
@@ -19,20 +39,18 @@ public class CalculationsUsingOperator implements CalculateLogic {
         operatorMap.put("/", SignAnalysisAndCalculation.DIVIDE);
     }
 
-    public double calculateSinglePart(int a, String sign, int b) {
+    public int calculateSinglePart(int a, String sign, int b) {
         return Optional.ofNullable(operatorMap.get(sign))
                 .orElseThrow(() -> new IllegalArgumentException("error"))
                 .calculateByOperator(a, b);
     }
-
-
+    @Override
     public int calculateTheWhole(List<String> formula) {
-        int answer = Integer.parseInt(formula.get(0));
+        this.answer = Integer.parseInt(formula.get(0));
         for (int i = 1; i < formula.size(); i += 2) {
-            answer = ((int) calculateSinglePart(answer, formula.get(i), Integer.parseInt(formula.get(i + 1))));
+            this.answer = calculateSinglePart(this.answer, formula.get(i), Integer.parseInt(formula.get(i + 1)));
         }
-        return answer;
+        return this.answer;
     }
-
 
 }
