@@ -1,23 +1,22 @@
 package sequencelogic;
 
 import calculatelogic.CalculateConfig;
-import inputlogic.InputConfig;
 
 import showconsole.AnswerNotification;
 import storage.RetentionOfNecessaryDate;
-import sequencelogic.validatesequence.ValidationConfig;
 
 public class MainSequence {
-    static public void sequence(){
+    public final static MainSequence mainSequence = new MainSequence();
+    private final CalculateConfig calculateConfig = new CalculateConfig();
+    private MainSequence() {
+    }
+    public void sequence() {
+        RetentionOfNecessaryDate retentionOfNecessaryDate = new RetentionOfNecessaryDate();
 
-        InputConfig inputConfig = new InputConfig();
-        ValidationConfig validationConfig = new ValidationConfig();
-        CalculateConfig calculateConfig = new CalculateConfig();
-        AnswerNotification answerNotification = new AnswerNotification();
-        RetentionOfNecessaryDate retentionOfNecessaryDate = new RetentionOfNecessaryDate(inputConfig.inputLogic().inputFormula());
+        int answer = calculateConfig
+                .calculateLogic()
+                .calculateTheWhole(retentionOfNecessaryDate.getFormula());
 
-
-        validationConfig.validateSequence().order(retentionOfNecessaryDate.getFormula());
-        answerNotification.expressResult(calculateConfig.calculateLogic().calculateTheWhole(retentionOfNecessaryDate.getFormula()));
+        AnswerNotification.answerNotification.expressResult(answer);
     }
 }

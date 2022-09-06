@@ -1,7 +1,7 @@
 import sequencelogic.MainSequence;
 
-public class Calculator {
+public class Calculator{
     public static void main(String[] args) {
-        MainSequence.sequence();
+        MainSequence.mainSequence.sequence();
     }
 }
