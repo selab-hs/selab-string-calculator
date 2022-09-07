@@ -14,3 +14,19 @@
 wrjs@naver.com
 ```
 4. 공부하고 싶은 SE.LAB원이라면 누구나 환영!
+### 3. 코드설명
+1. CalculaterStart 
+   1. 메인함수
+2. ExpressionInput
+   1. 사용자 버퍼를 읽고 저장
+3. NumberExtractor
+   1. StringReader를 상속받아 저장된 버퍼를 띄어쓰기 단위로 큐에 저장하기까지의 기능을 함
+4. StringToInteger
+   1. 큐를 받아와 2개의 큐를 이용하여 숫자와 기호를 분리시키는 기능을 함
+5. Operator
+   1. enum클래스로 각각의 기호가 어떠한 계산을 하는지 명시
+6. Calculation
+   1. 숫자와 기호로 나뉘어진 큐와 Operator를 이용하여 계산
+
+
+
