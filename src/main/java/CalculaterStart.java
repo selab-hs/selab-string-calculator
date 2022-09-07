@@ -1,17 +1,13 @@
 public class CalculaterStart {
     public static void main(String[] args) {
-
         NumberExtractor numberExtractor = new NumberExtractor();
-        StringToInteger stringToInteger = new StringToInteger(numberExtractor.numberSubmit);
-        Calculation calculation = new Calculation(stringToInteger.fillternumber, stringToInteger.fillterSpace);
-
+        StringSeparation stringSeparation = new StringSeparation(numberExtractor.numberSubmit);
+        Calculation calculation = new Calculation(stringSeparation.numbers, stringSeparation.Spaces);
         numberExtractor.getString();
         numberExtractor.stringToInteger();
-        stringToInteger.splitStringInt();
-        calculation.calculateLine();
-
+        stringSeparation.splitStringInt();
+        System.out.println(calculation.calculate());
     }
-
 }
 
 

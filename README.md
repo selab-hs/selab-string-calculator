@@ -17,7 +17,7 @@ wrjs@naver.com
 ### 3. 코드설명
 1. CalculaterStart 
    1. 메인함수
-2. StringReader
+2. ExpressionInput
    1. 사용자 버퍼를 읽고 저장
 3. NumberExtractor
    1. StringReader를 상속받아 저장된 버퍼를 띄어쓰기 단위로 큐에 저장하기까지의 기능을 함

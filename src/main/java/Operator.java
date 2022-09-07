@@ -5,9 +5,8 @@ public enum Operator {
     Minus("-", (firstNUM, secondNUM) -> firstNUM - secondNUM),
     Multiple("*", (firstNUM, secondNUM) -> firstNUM * secondNUM),
     Divide("/", (firstNUM, secondNUM) -> firstNUM / secondNUM);
-    final String value;
+    private String value;
     BiFunction<Integer, Integer, Integer> calculate;
-
     Operator(String value, BiFunction<Integer, Integer, Integer> calculate) {
         this.value = value;
         this.calculate = calculate;

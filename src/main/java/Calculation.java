@@ -1,5 +1,4 @@
 import java.util.HashMap;
-
 import java.util.Queue;
 
 public class Calculation {
@@ -12,28 +11,26 @@ public class Calculation {
         this.symbol = symbol;
     }
 
-     HashMap<String, Operator> makeOperator = new HashMap<>();
+    HashMap<String, Operator> makeOperator = new HashMap<>();
 
-     {
+    {
         makeOperator.put("+", Operator.Add);
         makeOperator.put("-", Operator.Minus);
         makeOperator.put("*", Operator.Multiple);
         makeOperator.put("/", Operator.Divide);
     }
 
-
-    public int calculateLine() {
+    public int calculate() {
         int firstNUM = number.poll();
         while (!number.isEmpty()) {
             int secondNUM = number.poll();
             String operator = symbol.poll();
-            firstNUM = Calculate(operator, firstNUM, secondNUM);
+            firstNUM = previouslyCalculate(operator, firstNUM, secondNUM);
         }
-        System.out.println("result you put : " + firstNUM);
         return firstNUM;
     }
 
-    public int Calculate(String operator, int firstNUM, int secondNUM) {
+    public int previouslyCalculate(String operator, int firstNUM, int secondNUM) {
         return makeOperator.get(operator).calculate.apply(firstNUM, secondNUM);
     }
 }
