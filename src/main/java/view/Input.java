@@ -3,7 +3,7 @@ package view;
 import java.util.Scanner;
 
 public class Input {
-    private final Scanner SCANNER = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in);
     private final String SEPARATOR = " ";
 
     public String[] Input() {
@@ -16,7 +16,7 @@ public class Input {
     }
 
     private String getData() {
-        return SCANNER.nextLine();
+        return scanner.nextLine();
     }
 
     private String[] split(String formula) {
