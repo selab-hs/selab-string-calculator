@@ -9,7 +9,7 @@ public class Calculation {
     public Calculation(Calculator calculator) {
         calculator.setResult(calculator.number.poll().getNumber());
 
-        Iterator max = calculator.operator.iterator();
+        Iterator<String> max = calculator.operator.iterator();
 
         while (max.hasNext()) {
             calculator.setResult(
@@ -18,9 +18,5 @@ public class Calculation {
                             .Calculate(calculator.getResult(), calculator.number.poll().getNumber())
             );
         }
-
-
     }
-
-
 }
