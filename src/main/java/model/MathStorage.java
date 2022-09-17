@@ -1,4 +1,8 @@
-package storage;
+package model;
+
+import service.Calculate;
+import view.ErrorNotification;
+import view.ErrorTypeClassification;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,19 +11,16 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-import static showconsole.ErrorTypeClassification.errorTypeClassification;
-
-public class RetentionOfNecessaryDate {
-    private List<String> formula;
-
-    public RetentionOfNecessaryDate() {
-        List<String> formula = inputFormula();
-        validateCheck(formula);
-        this.formula = formula;
-    }
+public class MathStorage {
+    private List<String> formula = null;
+    public final Calculate calculate = new Calculate();
+    private final ErrorTypeClassification errorTypeClassification = new ErrorTypeClassification();
 
     public List<String> getFormula() {
         return formula;
+    }
+    public void setFormula(){
+        this.formula = inputFormula();
     }
 
     private List<String> inputFormula() {
@@ -29,6 +30,7 @@ public class RetentionOfNecessaryDate {
             String str = bufferedReader.readLine();
             formula = Arrays.asList(str.split(" "));
             bufferedReader.close();
+            validateCheck(formula);
             return formula;
         } catch (IOException e) {
             e.printStackTrace();
@@ -38,11 +40,9 @@ public class RetentionOfNecessaryDate {
 
 
     private void validateCheck(List<String> formula){
-        List<String> numbers = extractNumber(formula);
-        List<String> signs = extractSign(formula);
         lengthCheckValidate(formula);
-        numberCheckValidate(numbers);
-        signCheckValidate(signs);
+        numberCheckValidate(extractNumber(formula));
+        signCheckValidate(extractSign(formula));
     }
 
     private List<String> extractNumber(List<String> formula){
@@ -61,8 +61,8 @@ public class RetentionOfNecessaryDate {
 
     private void lengthCheckValidate(List<String> formula) {
         if (formula.size() % 2 == 0) {
+            errorTypeClassification.length().expressOnConsole();
             System.exit(0);
-            errorTypeClassification.lengthLogic();
         }
     }
 
@@ -72,13 +72,13 @@ public class RetentionOfNecessaryDate {
                 int intValue = Integer.parseInt(number);
             }
         } catch (Exception e) {
-            errorTypeClassification.numberLogic().expressOnConsole();
+            errorTypeClassification.number().expressOnConsole();
             System.exit(0);
         }
 
         for (String number : numbers) {
             if (number.charAt(0) == '0' && !number.equals("0")) {
-                errorTypeClassification.numberLogic().expressOnConsole();
+                errorTypeClassification.number().expressOnConsole();
                 System.exit(0);
             }
         }
@@ -91,7 +91,8 @@ public class RetentionOfNecessaryDate {
         boolean option = signs.stream()
                 .allMatch(validateSign::contains);
         if (!option) {
-            errorTypeClassification.signLogic().expressOnConsole();
+            errorTypeClassification.sign().expressOnConsole();
+            System.exit(0);
         }
     }
 }

@@ -1,4 +1,4 @@
-package showconsole;
+package view;
 
 public class ErrorNotification implements ResultNotification{
 

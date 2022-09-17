@@ -1,7 +1,8 @@
-import sequencelogic.MainSequence;
+import controller.Controller;
 
 public class Calculator{
     public static void main(String[] args) {
-        MainSequence.mainSequence.sequence();
+        Controller controller = new Controller();
+        controller.calculateRequest();
     }
 }
