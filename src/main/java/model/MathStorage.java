@@ -1,7 +1,6 @@
 package model;
 
-import service.Calculate;
-import view.ErrorNotification;
+import service.CalculationsUsingOperator;
 import view.ErrorTypeClassification;
 
 import java.io.BufferedReader;
@@ -13,12 +12,10 @@ import java.util.List;
 
 public class MathStorage {
     private List<String> formula = null;
-    public final Calculate calculate = new Calculate();
+
+    private CalculationsUsingOperator calculationsUsingOperator = new CalculationsUsingOperator();
     private final ErrorTypeClassification errorTypeClassification = new ErrorTypeClassification();
 
-    public List<String> getFormula() {
-        return formula;
-    }
     public void setFormula(){
         this.formula = inputFormula();
     }
@@ -38,6 +35,9 @@ public class MathStorage {
         }
     }
 
+    public int calculate(){
+        return calculationsUsingOperator.calculateTheWhole(this.formula);
+    }
 
     private void validateCheck(List<String> formula){
         lengthCheckValidate(formula);

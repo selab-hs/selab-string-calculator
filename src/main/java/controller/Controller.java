@@ -1,12 +1,13 @@
 package controller;
 
 import model.MathStorage;
-import service.Calculate;
 import view.AnswerNotification;
 
+import java.util.List;
+
 public class Controller {
-    MathStorage mathStorage = new MathStorage();
-    AnswerNotification answerNotification = new AnswerNotification();
+    private final MathStorage mathStorage = new MathStorage();
+    private final AnswerNotification answerNotification = new AnswerNotification();
 
     public void calculateRequest(){
         inputFormula();
@@ -17,7 +18,7 @@ public class Controller {
     }
 
     private void calculate(){
-        int answer = mathStorage.calculate.calculateLogic().calculateTheWhole(mathStorage.getFormula());
+        int answer = mathStorage.calculate();
         showAnswer(answer);
     }
     private void showAnswer(int answer){

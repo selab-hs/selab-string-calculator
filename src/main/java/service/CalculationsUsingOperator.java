@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.function.BiFunction;
 
-public class CalculationsUsingOperator implements Calculation {
+public class CalculationsUsingOperator {
     private int answer;
 
     private enum SignAnalysisAndCalculation {
@@ -39,12 +39,11 @@ public class CalculationsUsingOperator implements Calculation {
         operatorMap.put("/", SignAnalysisAndCalculation.DIVIDE);
     }
 
-    public int calculateSinglePart(int a, String sign, int b) {
+    private int calculateSinglePart(int a, String sign, int b) {
         return Optional.ofNullable(operatorMap.get(sign))
                 .orElseThrow(() -> new IllegalArgumentException("error"))
                 .calculateByOperator(a, b);
     }
-    @Override
     public int calculateTheWhole(List<String> formula) {
         this.answer = Integer.parseInt(formula.get(0));
         for (int i = 1; i < formula.size(); i += 2) {

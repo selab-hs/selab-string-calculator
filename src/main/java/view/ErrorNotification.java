@@ -2,7 +2,7 @@ package view;
 
 public class ErrorNotification implements ResultNotification{
 
-    String errorAlert;
+    private String errorAlert;
 
     public ErrorNotification(String errorAlert){
         this.errorAlert = errorAlert;
