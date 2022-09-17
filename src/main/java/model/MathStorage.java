@@ -1,7 +1,6 @@
 package model;
 
 import service.CalculationsUsingOperator;
-import view.ErrorTypeClassification;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,11 +9,12 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
+import static view.ErrorTypeClassification.errorTypeClassification;
+
 public class MathStorage {
     private List<String> formula = null;
 
     private CalculationsUsingOperator calculationsUsingOperator = new CalculationsUsingOperator();
-    private final ErrorTypeClassification errorTypeClassification = new ErrorTypeClassification();
 
     public void setFormula(){
         this.formula = inputFormula();
