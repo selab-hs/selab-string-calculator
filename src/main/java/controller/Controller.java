@@ -11,15 +11,15 @@ public class Controller {
 
     public void calculateRequest(){
         inputFormula();
-        calculate();
+        int answer = calculate();
+        showAnswer(answer);
     }
     private void inputFormula(){
         mathStorage.setFormula();
     }
 
-    private void calculate(){
-        int answer = mathStorage.calculate();
-        showAnswer(answer);
+    private int calculate(){
+        return mathStorage.calculate();
     }
     private void showAnswer(int answer){
         answerNotification.expressResult(answer);
