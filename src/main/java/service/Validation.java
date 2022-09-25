@@ -7,22 +7,22 @@ import static view.ErrorTypeClassification.errorTypeClassification;
 
 public class Validation {
 
-    public void validateCheck(List<String> formula){
+    public void validateCheck(List<String> formula) {
         lengthCheckValidate(formula);
         numberCheckValidate(extractNumber(formula));
         signCheckValidate(extractSign(formula));
     }
 
-    private List<String> extractNumber(List<String> formula){
+    private List<String> extractNumber(List<String> formula) {
         List<String> numbers = new LinkedList<>();
-        for(int i = 0;i<formula.size();i+=2)
+        for (int i = 0; i < formula.size(); i += 2)
             numbers.add(formula.get(i));
         return numbers;
     }
 
-    private List<String> extractSign(List<String> formula){
+    private List<String> extractSign(List<String> formula) {
         List<String> signs = new LinkedList<>();
-        for(int i = 1;i<formula.size();i+=2)
+        for (int i = 1; i < formula.size(); i += 2)
             signs.add(formula.get(i));
         return signs;
     }

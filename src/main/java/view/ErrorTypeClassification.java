@@ -1,10 +1,9 @@
 package view;
 
 public class ErrorTypeClassification {
-
     public static ErrorTypeClassification errorTypeClassification = new ErrorTypeClassification();
 
-    private ErrorTypeClassification(){
+    private ErrorTypeClassification() {
 
     }
 

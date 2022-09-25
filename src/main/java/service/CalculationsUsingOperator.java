@@ -44,6 +44,7 @@ public class CalculationsUsingOperator {
                 .orElseThrow(() -> new IllegalArgumentException("error"))
                 .calculateByOperator(a, b);
     }
+
     public int calculateTheWhole(List<String> formula) {
         this.answer = Integer.parseInt(formula.get(0));
         for (int i = 1; i < formula.size(); i += 2) {
