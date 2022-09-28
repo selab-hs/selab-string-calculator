@@ -3,6 +3,10 @@ package controller;
 import model.MathStorage;
 import view.AnswerNotification;
 
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+
 public class Controller {
     private final MathStorage mathStorage = new MathStorage();
     private final AnswerNotification answerNotification = new AnswerNotification();

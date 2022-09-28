@@ -24,7 +24,6 @@ public class MathStorage {
     public int calculate() {
         return calculationsUsingOperator.calculateTheWhole(this.formula);
     }
-
 }
 
 
