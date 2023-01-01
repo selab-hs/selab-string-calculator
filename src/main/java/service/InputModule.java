@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-public class UserInput {
+public class InputModule {
     public List<String> input() {
         try (
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))

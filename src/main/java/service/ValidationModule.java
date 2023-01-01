@@ -5,7 +5,7 @@ import java.util.List;
 
 import static view.ErrorTypeClassification.errorTypeClassification;
 
-public class Validation {
+public class ValidationModule {
 
     public void validateCheck(List<String> formula) {
         lengthCheckValidate(formula);

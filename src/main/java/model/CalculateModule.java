@@ -1,4 +1,4 @@
-package service;
+package model;
 
 
 import java.util.HashMap;
@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.function.BiFunction;
 
-public class CalculationsUsingOperator {
+public class CalculateModule {
     private int answer;
 
     private enum SignAnalysisAndCalculation {

@@ -1,31 +1,20 @@
 package controller;
 
-import model.MathStorage;
+import model.CalculateModule;
+import service.InputModule;
+import service.ValidationModule;
 import view.AnswerNotification;
 
-import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 
 public class Controller {
-    private final MathStorage mathStorage = new MathStorage();
-    private final AnswerNotification answerNotification = new AnswerNotification();
+    private final ValidationModule validationModule = new ValidationModule();
+    private final CalculateModule calculateModule = new CalculateModule();
+    public void start(){
+        List<String> formula = new InputModule().input();
+        validationModule.validateCheck(formula);
 
-    public void calculateRequest() {
-        inputFormula();
-        int answer = calculate();
-        showAnswer(answer);
-    }
-
-    private void inputFormula() {
-        mathStorage.setFormula();
-    }
-
-    private int calculate() {
-        return mathStorage.calculate();
-    }
-
-    private void showAnswer(int answer) {
-        answerNotification.expressResult(answer);
+        int answer = calculateModule.calculateTheWhole(formula);
+        new AnswerNotification().expressResult(answer);
     }
 }
