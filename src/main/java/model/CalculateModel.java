@@ -1,13 +1,15 @@
 package model;
 
 
+import dto.FormulaDto;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.BiFunction;
 
-public class CalculateModule {
+public class CalculateModel {
     private int answer;
 
     private enum SignAnalysisAndCalculation {
@@ -45,12 +47,11 @@ public class CalculateModule {
                 .calculateByOperator(a, b);
     }
 
-    public int calculateTheWhole(List<String> formula) {
-        this.answer = Integer.parseInt(formula.get(0));
-        for (int i = 1; i < formula.size(); i += 2) {
-            this.answer = calculateSinglePart(this.answer, formula.get(i), Integer.parseInt(formula.get(i + 1)));
+    public int calculateTheWhole(FormulaDto formula) {
+        this.answer = Integer.parseInt(formula.getFormula().get(0));
+        for (int i = 1; i < formula.getFormula().size(); i += 2) {
+            this.answer = calculateSinglePart(this.answer, formula.getFormula().get(i), Integer.parseInt(formula.getFormula().get(i + 1)));
         }
         return this.answer;
     }
-
 }
