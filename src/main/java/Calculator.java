@@ -1,10 +1,8 @@
-import controller.Controller;
-
-import java.util.List;
+import controller.MainController;
 
 
 public class Calculator {
     public static void main(String[] args) {
-        new Controller().start();
+        new MainController().sequence();
     }
 }
