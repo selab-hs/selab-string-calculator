@@ -1,5 +1,12 @@
+import java.util.Scanner;
+
+
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("1 + 1 = 2");
+        GetInputValue giv = new GetInputValue();
+        CheckNumOperator checkNumOperator = new CheckNumOperator(giv.getInputValue());
+        Calc.calc(checkNumOperator.inputOperator, checkNumOperator.inputNum);
     }
 }
+
