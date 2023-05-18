@@ -9,8 +9,8 @@
 ---
 ###  2. 구현 소개
 - GetInputValue : input값을 얻어내는 함수
--  CheckNumOperator : 연산자와 비연산자를 구분하는 함수
--  Calc : 구분한 연산자와 비연산자를 통해 결과값을 도출해내는 함수
+- CheckNumOperator : 연산자와 비연산자를 구분하는 함수
+- Calc : 구분한 연산자와 비연산자를 통해 결과값을 도출해내는 함수
 
 
 

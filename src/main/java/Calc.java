@@ -1,16 +1,22 @@
 public class Calc {
-    public static void calc(String[] inputOperator, int[] inputNum){
-        int calcResult = inputNum[0];
+    public Calc(CheckNumOperator checkNumOperator){
 
-        for(int i = 0 ; i < inputOperator.length ; i++){
-            if(inputOperator[i].equals("+"))
-                calcResult = calcResult + inputNum[i + 1];
-            if(inputOperator[i].equals("-"))
-                calcResult = calcResult - inputNum[i + 1];
-            if(inputOperator[i].equals("*"))
-                calcResult = calcResult * inputNum[i + 1];
-            if(inputOperator[i].equals("/"))
-                calcResult = calcResult / inputNum[i + 1];
+        int calcResult = checkNumOperator.inputNum[0];
+        for(int i = 0 ; i < checkNumOperator.inputOperator.length ; i++){
+            switch (checkNumOperator.inputOperator[i]) {
+                case "+":
+                    calcResult = calcResult + checkNumOperator.inputNum[i + 1];
+                    break;
+                case "-":
+                    calcResult = calcResult - checkNumOperator.inputNum[i + 1];
+                    break;
+                case "*":
+                    calcResult = calcResult * checkNumOperator.inputNum[i + 1];
+                    break;
+                case "/":
+                    calcResult = calcResult / checkNumOperator.inputNum[i + 1];
+                    break;
+            }
         }
         System.out.println("결과값 : " + calcResult);
     }

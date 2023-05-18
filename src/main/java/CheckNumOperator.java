@@ -1,6 +1,6 @@
 public class CheckNumOperator {
-    String[] inputOperator;
-    int[] inputNum;
+    protected String[] inputOperator = { };
+    protected int[] inputNum = { };
     public CheckNumOperator(String input){
         // 연산자와 피연산자 개수 계산
 
@@ -40,11 +40,14 @@ public class CheckNumOperator {
             } else if (isOperator(currentChar)) {
                 inputOperator[operatorIndex] = currentChar;
                 operatorIndex++;
+            } else if(!currentChar.equals(" ")){
+                System.out.println("잘못된 입력입니다. 프로그램을 종료합니다.");
+                System.exit(0);
             }
         }
     }
 
-    public static boolean isNum(String str) {
+    protected boolean isNum(String str) {
         try {
             Double.parseDouble(str);
             return true;
@@ -53,7 +56,7 @@ public class CheckNumOperator {
         }
     }
 
-    public static boolean isOperator(String str) {
+    protected boolean isOperator(String str) {
         return str.equals("+") || str.equals("-") || str.equals("*") || str.equals("/");
     }
 
