@@ -1,5 +1,5 @@
 public class Calc {
-    public Calc(CheckNumOperator checkNumOperator){
+    public int Calc(CheckNumOperator checkNumOperator){
 
         int calcResult = checkNumOperator.inputNum[0];
         for(int i = 0 ; i < checkNumOperator.inputOperator.length ; i++){
@@ -18,6 +18,6 @@ public class Calc {
                     break;
             }
         }
-        System.out.println("결과값 : " + calcResult);
+        return calcResult;
     }
 }
