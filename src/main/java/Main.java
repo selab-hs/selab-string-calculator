@@ -9,5 +9,6 @@ public class Main {
         Calc calc = new Calc();
         PrintResult printResult = new PrintResult(calc.Calc(checkNumOperator));
     }
+
 }
 
