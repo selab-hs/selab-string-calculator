@@ -7,7 +7,7 @@ public class Main {
         GetInputValue giv = new GetInputValue();
         CheckNumOperator checkNumOperator = new CheckNumOperator(giv.getInputValue());
         Calc calc = new Calc();
-        PrintResult printResult = new PrintResult(calc.Calc(checkNumOperator));
+        PrintResult printResult = new PrintResult(calc.calc(checkNumOperator));
     }
 
 }

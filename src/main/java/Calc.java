@@ -1,21 +1,8 @@
 public class Calc {
-    public int Calc(CheckNumOperator checkNumOperator){
+    public int calc(CheckNumOperator checkNumOperator) {
         int calcResult = checkNumOperator.inputNum[0];
-        for(int i = 0 ; i < checkNumOperator.inputOperator.length ; i++){
-            switch (checkNumOperator.inputOperator[i]) {
-                case "+":
-                    calcResult = calcResult + checkNumOperator.inputNum[i + 1];
-                    break;
-                case "-":
-                    calcResult = calcResult - checkNumOperator.inputNum[i + 1];
-                    break;
-                case "*":
-                    calcResult = calcResult * checkNumOperator.inputNum[i + 1];
-                    break;
-                case "/":
-                    calcResult = calcResult / checkNumOperator.inputNum[i + 1];
-                    break;
-            }
+        for (int i = 0; i < checkNumOperator.inputOperator.length; i++) {
+            calcResult = Operator.calculate(checkNumOperator.inputOperator[i], calcResult, checkNumOperator.inputNum[i + 1]);
         }
         return calcResult;
     }
