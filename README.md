@@ -8,10 +8,8 @@
 
 ---
 ###  2. 구현 소개
-- GetInputValue : input값을 얻어내는 함수
-- CheckNumOperator : 연산자와 비연산자를 구분하는 함수
-- Calc : 구분한 연산자와 비연산자를 통해 결과값을 도출해내는 함수
-
-
-
-
+- GetInputValue : input값을 얻어내는 클래스
+- CheckNumOperator : 연산자와 비연산자를 구분하는 클래스
+- Calc : 구분한 연산자와 비연산자를 Operator클래스를 이용해 결과값을 도출해내는 클래스
+- Operator : 연산자를 Enum으로 저장해 입력받은 연산자와 비교하여 계산하는 클래스
+- PrintResult : 결과값을 출력하는 클래스
