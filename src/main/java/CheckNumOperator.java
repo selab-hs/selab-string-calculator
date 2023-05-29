@@ -1,11 +1,12 @@
 public class CheckNumOperator {
     protected String[] inputOperator = { };
-    protected int[] inputNum = { };
-    public CheckNumOperator(String input){
-        // 연산자와 피연산자 개수 계산
+    protected Number inputNum;
 
+    public CheckNumOperator(String input) {
         int numCount = 0;
         int operatorCount = 0;
+
+        // 연산자와 피연산자 개수 계산
         for (int i = 0; i < input.length(); i++) {
             String currentChar = String.valueOf(input.charAt(i));
             if (isNum(currentChar)) {
@@ -21,7 +22,7 @@ public class CheckNumOperator {
 
         // 연산자와 피연산자를 저장할 배열 생성
         inputOperator = new String[operatorCount];
-        inputNum = new int[numCount];
+        int[] inputNumArray = new int[numCount];
 
         // 연산자와 피연산자 저장
         int numIndex = 0;
@@ -35,16 +36,17 @@ public class CheckNumOperator {
                     currentNum = currentNum * 10 + Integer.parseInt(String.valueOf(input.charAt(i + 1)));
                     i++;
                 }
-                inputNum[numIndex] = currentNum;
+                inputNumArray[numIndex] = currentNum;
                 numIndex++;
             } else if (isOperator(currentChar)) {
                 inputOperator[operatorIndex] = currentChar;
                 operatorIndex++;
-            } else if(!currentChar.equals(" ")){
+            } else if (!currentChar.equals(" ")) {
                 System.out.println("잘못된 입력입니다. 프로그램을 종료합니다.");
                 System.exit(0);
             }
         }
+        inputNum = new Number(inputNumArray);
     }
 
     protected boolean isNum(String str) {
