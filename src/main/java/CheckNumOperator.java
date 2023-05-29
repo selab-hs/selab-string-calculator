@@ -1,32 +1,18 @@
 public class CheckNumOperator {
-    protected String[] inputOperator = { };
+    protected static String[] inputOperator = { };
     protected Number inputNum;
-
+    protected int numCount = 0;
+    protected int operatorCount = 0;
+    int numIndex = 0;
+    int operatorIndex = 0;
     public CheckNumOperator(String input) {
-        int numCount = 0;
-        int operatorCount = 0;
+        countNumOperator(input);
+        saveNumOperator(input);
+    }
 
-        // 연산자와 피연산자 개수 계산
-        for (int i = 0; i < input.length(); i++) {
-            String currentChar = String.valueOf(input.charAt(i));
-            if (isNum(currentChar)) {
-                numCount++;
-                // 숫자가 연속으로 나올 경우 하나의 피연산자로 간주
-                while (i < input.length() - 1 && isNum(String.valueOf(input.charAt(i + 1)))) {
-                    i++;
-                }
-            } else if (isOperator(currentChar)) {
-                operatorCount++;
-            }
-        }
-
-        // 연산자와 피연산자를 저장할 배열 생성
+    public void saveNumOperator(String input){
         inputOperator = new String[operatorCount];
         int[] inputNumArray = new int[numCount];
-
-        // 연산자와 피연산자 저장
-        int numIndex = 0;
-        int operatorIndex = 0;
         for (int i = 0; i < input.length(); i++) {
             String currentChar = String.valueOf(input.charAt(i));
             if (isNum(currentChar)) {
@@ -49,6 +35,21 @@ public class CheckNumOperator {
         inputNum = new Number(inputNumArray);
     }
 
+    public void countNumOperator(String input){
+        for (int i = 0; i < input.length(); i++) {
+            String currentChar = String.valueOf(input.charAt(i));
+            if (isNum(currentChar)) {
+                numCount++;
+                // 숫자가 연속으로 나올 경우 하나의 피연산자로 간주
+                while (i < input.length() - 1 && isNum(String.valueOf(input.charAt(i + 1)))) {
+                    i++;
+                }
+            } else if (isOperator(currentChar)) {
+                operatorCount++;
+            }
+        }
+    }
+
     protected boolean isNum(String str) {
         try {
             Double.parseDouble(str);
@@ -57,7 +58,6 @@ public class CheckNumOperator {
             return false;
         }
     }
-
     protected boolean isOperator(String str) {
         return str.equals("+") || str.equals("-") || str.equals("*") || str.equals("/");
     }
