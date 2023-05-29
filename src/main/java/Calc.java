@@ -1,9 +1,10 @@
-public class Calc {
-    public int calc(CheckNumOperator checkNumOperator) {
-        int calcResult = checkNumOperator.inputNum[0];
-        for (int i = 0; i < checkNumOperator.inputOperator.length; i++) {
-            calcResult = Operator.calculate(checkNumOperator.inputOperator[i], calcResult, checkNumOperator.inputNum[i + 1]);
+/*public class Calc {
+    public static int calc() {
+        int calcResult = Number.number[0];
+        for (int i = 0; i < inputOperator.length; i++) {
+            calcResult = Operator.calculate(inputOperator[i], calcResult, Number.number[i+1]);
         }
         return calcResult;
     }
 }
+*/
