@@ -19,7 +19,7 @@ public enum Operator {
         return getOperator(operator).expression.apply(num1, num2);
     }
 
-    private static Operator getOperator(String operator) {
+    static Operator getOperator(String operator) {
         return Arrays.stream(values())
                 .filter(o -> o.operator.equals(operator))
                 .findFirst().orElseThrow(() -> new IllegalArgumentException("올바른 연산자가 아닙니다."));

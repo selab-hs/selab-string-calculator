@@ -1,6 +1,8 @@
+import java.util.regex.Pattern;
+
 public class CheckNumOperator {
-    protected static String[] inputOperator = { };
-    protected Number inputNum;
+        protected static String[] inputOperator = { };
+        protected static Number inputNum;
     protected int numCount = 0;
     protected int operatorCount = 0;
     int numIndex = 0;
@@ -10,7 +12,7 @@ public class CheckNumOperator {
         saveNumOperator(input);
     }
 
-    public void saveNumOperator(String input){
+    public Number saveNumOperator(String input){
         inputOperator = new String[operatorCount];
         int[] inputNumArray = new int[numCount];
         for (int i = 0; i < input.length(); i++) {
@@ -27,12 +29,24 @@ public class CheckNumOperator {
             } else if (isOperator(currentChar)) {
                 inputOperator[operatorIndex] = currentChar;
                 operatorIndex++;
-            } else if (!currentChar.equals(" ")) {
-                System.out.println("잘못된 입력입니다. 프로그램을 종료합니다.");
-                System.exit(0);
-            }
+            } else checkBlank(currentChar);
+
         }
-        inputNum = new Number(inputNumArray);
+        return inputNum = new Number(inputNumArray);
+    }
+
+    private boolean checkBlank(String currentChar) {
+        if(currentChar.isBlank())
+            return true;
+        else{
+            System.out.println("잘못된 입력입니다. 프로그램을 종료합니다.");
+            System.exit(1);
+            return false;
+        }
+    }
+
+    public static Number getInputNum() {
+        return inputNum;
     }
 
     public void countNumOperator(String input){
@@ -52,14 +66,14 @@ public class CheckNumOperator {
 
     protected boolean isNum(String str) {
         try {
-            Double.parseDouble(str);
-            return true;
+            return str.matches("^[0-9]+$");
         } catch (NumberFormatException e) {
             return false;
         }
     }
     protected boolean isOperator(String str) {
-        return str.equals("+") || str.equals("-") || str.equals("*") || str.equals("/");
+        String operatorPattern = "[+\\-*/]";
+        if(Pattern.matches(operatorPattern, str)) return true;
+        else return false;
     }
-
 }
