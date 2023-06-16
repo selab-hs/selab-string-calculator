@@ -1,79 +1,54 @@
-import java.util.regex.Pattern;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Stream;
 
 public class CheckNumOperator {
-        protected static String[] inputOperator = { };
-        protected static Number inputNum;
-    protected int numCount = 0;
-    protected int operatorCount = 0;
-    int numIndex = 0;
-    int operatorIndex = 0;
+    protected static String[] inputOperator = { };
+    protected static int[] inputNum = { };
+    protected static int numCount = 0, operatorCount = 0;
+    protected static int numIndex = 0,operatorIndex = 0;
+
     public CheckNumOperator(String input) {
-        countNumOperator(input);
-        saveNumOperator(input);
+        parseInput(input);
     }
 
-    public Number saveNumOperator(String input){
+    private void parseInput(String input) {
+        String[] tokens = input.split(" ");
+        countNumOperator(tokens);
+        pushNumOperator(tokens);
+    }
+
+    private void countNumOperator(String[] tokens) {
+        for (int i = 0; i < tokens.length; i++) {
+            if (i % 2 == 0) {
+                if (Number.isNum(tokens[i])) {
+                    numCount++;
+                }
+            } else {
+                if (Operator.isOperator(tokens[i])) {
+                    operatorCount++;
+                }
+            }
+        }
         inputOperator = new String[operatorCount];
-        int[] inputNumArray = new int[numCount];
-        for (int i = 0; i < input.length(); i++) {
-            String currentChar = String.valueOf(input.charAt(i));
-            if (isNum(currentChar)) {
-                int currentNum = Integer.parseInt(currentChar);
-                // 숫자가 연속으로 나올 경우 하나의 피연산자로 간주
-                while (i < input.length() - 1 && isNum(String.valueOf(input.charAt(i + 1)))) {
-                    currentNum = currentNum * 10 + Integer.parseInt(String.valueOf(input.charAt(i + 1)));
-                    i++;
-                }
-                inputNumArray[numIndex] = currentNum;
+        inputNum = new int[numCount];
+    }
+
+    private void pushNumOperator(String[] tokens) {
+        for (int i = 0; i < tokens.length; i++) {
+            if (i % 2 == 0) {
+                Number.isNum(tokens[i]);
+                inputNum[numIndex] = Integer.parseInt(tokens[i]);
                 numIndex++;
-            } else if (isOperator(currentChar)) {
-                inputOperator[operatorIndex] = currentChar;
+            } else {
+                Operator.isOperator(tokens[i]);
+                inputOperator[operatorIndex] = tokens[i];
                 operatorIndex++;
-            } else checkBlank(currentChar);
-
-        }
-        return inputNum = new Number(inputNumArray);
-    }
-
-    private boolean checkBlank(String currentChar) {
-        if(currentChar.isBlank())
-            return true;
-        else{
-            System.out.println("잘못된 입력입니다. 프로그램을 종료합니다.");
-            System.exit(1);
-            return false;
-        }
-    }
-
-    public static Number getInputNum() {
-        return inputNum;
-    }
-
-    public void countNumOperator(String input){
-        for (int i = 0; i < input.length(); i++) {
-            String currentChar = String.valueOf(input.charAt(i));
-            if (isNum(currentChar)) {
-                numCount++;
-                // 숫자가 연속으로 나올 경우 하나의 피연산자로 간주
-                while (i < input.length() - 1 && isNum(String.valueOf(input.charAt(i + 1)))) {
-                    i++;
-                }
-            } else if (isOperator(currentChar)) {
-                operatorCount++;
             }
         }
     }
 
-    protected boolean isNum(String str) {
-        try {
-            return str.matches("^[0-9]+$");
-        } catch (NumberFormatException e) {
-            return false;
-        }
-    }
-    protected boolean isOperator(String str) {
-        String operatorPattern = "[+\\-*/]";
-        if(Pattern.matches(operatorPattern, str)) return true;
-        else return false;
+    public static int[] getInputNum() {
+        return inputNum;
     }
 }

@@ -10,7 +10,12 @@
 ###  2. 구현 소개
 - GetInputValue : input값을 얻어내는 클래스
 - CheckNumOperator : 연산자와 비연산자를 구분하는 클래스
+  - 연산자는 홀수 Index, 비연산자(숫자)는 짝수Index에 있음을 이용.
 - Calculator : 구분한 연산자와 비연산자를 Operator클래스를 이용해 결과값을 도출해내는 클래스
 - Number : 비연산자를 저장하는 클래스
 - Operator : 연산자를 Enum으로 저장해 입력받은 연산자와 비교하여 계산하는 클래스
 - PrintResult : 결과값을 출력하는 클래스
+
+### 3. 추가 구현 목표
+1. `split(" ")`을 이용했을 때, 비연산자는 필히 짝수 `index`, 연산자는 홀수 `index`에 있을 것이다.
+2. 따라서 구별 방식을 홀짝으로 구별하여 `inputNum`,`inputOperator` 을 구별하도록 구현해볼 것이다.

@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.function.BiFunction;
+import java.util.regex.Pattern;
 
 public enum Operator {
     PLUS("+", (value,value2) -> value + value2),
@@ -23,5 +24,14 @@ public enum Operator {
         return Arrays.stream(values())
                 .filter(o -> o.operator.equals(operator))
                 .findFirst().orElseThrow(() -> new IllegalArgumentException("올바른 연산자가 아닙니다."));
+    }
+
+    protected static boolean isOperator(String str) {
+        String operatorPattern = "[+\\-*/]";
+        if (Pattern.matches(operatorPattern, str)) {
+            return true;
+        } else {
+            throw new IllegalArgumentException("Invalid operator: " + str);
+        }
     }
 }
