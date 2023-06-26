@@ -1,7 +1,4 @@
 import java.util.ArrayList;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
 
 public class CheckNumOperator {
     protected static ArrayList<String> inputOperator = new ArrayList<>();
