@@ -1,17 +1,16 @@
-import java.util.regex.Pattern;
+import java.util.ArrayList;
 
 public class Number {
-    int[] number = { };
+    private ArrayList<Integer> number;
 
-    public Number(int[] number) {
+    public ArrayList<Integer> Number(){
+        return number;
+    }
+    public Number(ArrayList<Integer> number) {
         this.number = number;
     }
 
-    public Number() {
-
-    }
-
-    public int[] getNumber() {
+    public ArrayList<Integer> getNumber() {
         return number;
     }
 
