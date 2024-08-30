@@ -18,7 +18,7 @@ public class CalculatorController {
         this.formulaParser = formulaParser;
     }
 
-    public void run() {
+    public void calculatorRun() {
         String formula = inputView.formulaInput();
         String[] values = formulaParser.parse(formula);
         int result = operator.calculate(values);
