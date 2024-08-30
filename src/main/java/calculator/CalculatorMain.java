@@ -15,6 +15,6 @@ public class CalculatorMain {
         FormulaParser formulaParser = new FormulaParser();
 
         CalculatorController controller = new CalculatorController(operator, inputView, outputView, formulaParser);
-        controller.run();
+        controller.calculatorRun();
     }
 }
